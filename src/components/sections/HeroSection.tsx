@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { heroSlides } from '@/data/heroImages';
+import { heroSlides } from '@/data/herosection';
 import { scrollToSection } from '@/utils/scrollTo';
 
 export const HeroSection = () => {
@@ -9,7 +9,7 @@ export const HeroSection = () => {
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentSlide(prev => (prev + 1) % heroSlides.length);
-    }, 5000);
+    }, 50000);
 
     return () => clearInterval(timer);
   }, []);
@@ -32,7 +32,7 @@ export const HeroSection = () => {
       {heroSlides.map((slide, index) => (
         <div
           key={index}
-          className={`absolute inset-0 transition-opacity duration-1000 ${
+          className={`absolute inset-0 transition-opacity duration-10000 ${
             index === currentSlide ? 'opacity-100' : 'opacity-0'
           }`}
           style={{

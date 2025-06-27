@@ -1,6 +1,6 @@
 // src/pages/HomePage.tsx
 import { HeroSection } from '@/components/sections/HeroSection';
-// import { AboutSection } from '@/components/sections/AboutSection';
+import { AboutSection } from '@/components/sections/AboutSection';
 // import { ServicesSection } from '@/components/sections/ServicesSection';
 // import { IndustriesSection } from '@/components/sections/IndustriesSection';
 // import { ClientsSection } from '@/components/sections/ClientsSection';
@@ -11,8 +11,10 @@ export const HomePage = () => {
     <main className='pt-20'>
       <HeroSection />
 
+      <AboutSection />
+
       {/* Temporary sections - uncomment as you create them */}
-      <section
+      {/* <section
         id='about'
         className='min-h-screen bg-white flex items-center justify-center'
       >
@@ -22,7 +24,7 @@ export const HomePage = () => {
           </h2>
           <p className='text-gray-600'>About component will go here</p>
         </div>
-      </section>
+      </section> */}
 
       <section
         id='services'
