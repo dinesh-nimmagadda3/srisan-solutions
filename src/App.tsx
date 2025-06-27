@@ -1,4 +1,3 @@
-// src/App.tsx
 import { RouterProvider } from 'react-router-dom';
 
 import './App.css';

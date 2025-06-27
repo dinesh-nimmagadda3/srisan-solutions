@@ -5,6 +5,8 @@ export const companyInfo: CompanyInfo = {
   tagline: 'Boutique SAP Consulting Practice',
   description:
     'Tailored SAP consulting services designed to help businesses maximize the value of their SAP investments.',
+  footerDescription:
+    'SSL comprehensive SAP consulting services is the perfect fit for our clients. Our broad expertise expands the SAP capabilities of these companies, giving them technology that fits their business and supports their business success and growth.',
   founded: 2011,
   contact: {
     phone: '+44 7828736387',
@@ -24,5 +26,6 @@ export const navigationItems: NavItem[] = [
   { id: 'services', label: 'Services', href: '#services' },
   { id: 'industries', label: 'Industries', href: '#industries' },
   { id: 'clients', label: 'Clients', href: '#clients' },
+  { id: 'careers', label: 'Careers', href: '#careers' },
   { id: 'contact', label: 'Contact', href: '#contact' },
 ];

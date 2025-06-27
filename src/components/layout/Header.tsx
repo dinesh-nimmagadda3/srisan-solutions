@@ -1,7 +1,6 @@
-// src/components/layout/Header.tsx
 import { useState } from 'react';
 
-import { companyInfo, navigationItems } from '@/data/company';
+import { navigationItems } from '@/data/company';
 import { useScrollEffect } from '@/hooks/useScrollEffect';
 import type { NavItem } from '@/types';
 import { scrollToSection } from '@/utils/scrollTo';
@@ -31,17 +30,32 @@ export const Header = ({ className = '' }: HeaderProps) => {
           : 'bg-white/95 backdrop-blur-md'
       } ${className}`}
     >
-      <nav className='max-w-6xl mx-auto px-6 py-4'>
+      <nav className='max-w-6xl mx-auto px-6 py-3'>
         <div className='flex items-center justify-between'>
           {/* Logo */}
           <button
             onClick={() => scrollToSection('home')}
-            className='text-2xl font-bold text-indigo-600 hover:text-indigo-700 transition-colors duration-200'
+            className='flex items-center space-x-3 hover:opacity-90 transition-opacity duration-200'
           >
-            {companyInfo.name.split(' ')[0]} {/* Just "Srisan" */}
-            <span className='hidden sm:inline ml-1 text-lg font-medium text-gray-600'>
-              Solutions
-            </span>
+            {/* SSL Logo Image */}
+            <img
+              src='/ssl-logo.png'
+              alt='SSL Solutions Logo'
+              className='h-12 w-auto'
+            />
+
+            {/* Company Text */}
+            <div className='flex flex-col'>
+              <div className='flex items-baseline space-x-1'>
+                <span className='text-2xl font-bold text-orange-600'>SSL</span>
+                <span className='hidden sm:inline text-sm font-medium text-gray-600'>
+                  Solutions
+                </span>
+              </div>
+              <span className='hidden md:block text-xs text-orange-500 font-medium tracking-wide'>
+                BOUTIQUE SAP CONSULTING
+              </span>
+            </div>
           </button>
 
           {/* Desktop Navigation */}
@@ -50,10 +64,10 @@ export const Header = ({ className = '' }: HeaderProps) => {
               <button
                 key={item.id}
                 onClick={() => handleNavClick(item)}
-                className='text-gray-700 hover:text-indigo-600 font-medium transition-colors duration-200 py-2 px-1 relative group'
+                className='text-gray-700 hover:text-orange-600 font-medium transition-colors duration-200 py-2 px-1 relative group'
               >
                 {item.label}
-                <span className='absolute bottom-0 left-0 w-0 h-0.5 bg-indigo-600 transition-all duration-200 group-hover:w-full' />
+                <span className='absolute bottom-0 left-0 w-0 h-0.5 bg-orange-600 transition-all duration-200 group-hover:w-full' />
               </button>
             ))}
           </div>
@@ -99,7 +113,7 @@ export const Header = ({ className = '' }: HeaderProps) => {
               <button
                 key={item.id}
                 onClick={() => handleNavClick(item)}
-                className='block w-full text-left px-4 py-3 text-gray-700 hover:text-indigo-600 hover:bg-gray-50 rounded-lg transition-colors duration-200'
+                className='block w-full text-left px-4 py-3 text-gray-700 hover:text-orange-600 hover:bg-gray-50 rounded-lg transition-colors duration-200'
                 style={{
                   animationDelay: `${index * 50}ms`,
                 }}

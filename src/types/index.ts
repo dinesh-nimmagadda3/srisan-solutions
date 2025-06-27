@@ -37,6 +37,7 @@ export interface CompanyInfo {
   name: string;
   tagline: string;
   description: string;
+  footerDescription: string;
   founded: number;
   contact: ContactInfo;
 }
