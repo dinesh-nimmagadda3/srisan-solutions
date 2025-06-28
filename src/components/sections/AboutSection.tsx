@@ -4,7 +4,7 @@ import { aboutContent } from '@/data/aboutsection';
 
 export const AboutSection = () => {
   return (
-    <section id='about' className='py-20 bg-white'>
+    <section id='about' className='py-20 bg-gray-50'>
       <div className='max-w-6xl mx-auto px-6'>
         <div className='grid lg:grid-cols-2 gap-16 items-center'>
           {/* Content */}

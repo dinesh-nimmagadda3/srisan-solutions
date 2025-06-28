@@ -8,6 +8,7 @@ import {
   Heart,
   Wheat,
   FlaskConical,
+  ChevronDown,
 } from 'lucide-react';
 import { industriesContent, industriesData } from '@/data/industries';
 
@@ -23,6 +24,11 @@ const industryIcons = {
 
 export const IndustriesSection = () => {
   const [selectedIndustry, setSelectedIndustry] = useState(industriesData[0]);
+  const [expandedMobile, setExpandedMobile] = useState<string | null>(null);
+
+  const handleMobileToggle = (industryId: string) => {
+    setExpandedMobile(expandedMobile === industryId ? null : industryId);
+  };
 
   return (
     <section id='industries' className='py-12 bg-gray-50'>
@@ -37,8 +43,8 @@ export const IndustriesSection = () => {
           </p>
         </div>
 
-        {/* Split Screen Layout */}
-        <div className='grid lg:grid-cols-2 gap-12 items-start'>
+        {/* Desktop: Split Screen Layout */}
+        <div className='hidden lg:grid lg:grid-cols-2 gap-12 items-start'>
           {/* Left Side - Industry List */}
           <div className='space-y-3'>
             {industriesData.map(industry => {
@@ -203,6 +209,124 @@ export const IndustriesSection = () => {
               </div>
             </div>
           </div>
+        </div>
+
+        {/* Mobile: Accordion Layout */}
+        <div className='lg:hidden space-y-4'>
+          {industriesData.map(industry => {
+            const IconComponent =
+              industryIcons[industry.id as keyof typeof industryIcons];
+            const isExpanded = expandedMobile === industry.id;
+
+            return (
+              <div
+                key={industry.id}
+                className='bg-white rounded-xl shadow-md border border-gray-100 overflow-hidden'
+              >
+                {/* Accordion Header */}
+                <button
+                  onClick={() => handleMobileToggle(industry.id)}
+                  className='w-full p-6 text-left flex items-center justify-between hover:bg-gray-50 transition-colors duration-200'
+                >
+                  <div className='flex items-center space-x-4'>
+                    <div className='w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center'>
+                      <IconComponent className='w-6 h-6 text-orange-600' />
+                    </div>
+                    <div>
+                      <h3 className='font-bold text-gray-900 text-base leading-tight'>
+                        {industry.name}
+                      </h3>
+                      <p className='text-orange-600 text-sm font-medium'>
+                        SAP Expertise
+                      </p>
+                    </div>
+                  </div>
+
+                  <ChevronDown
+                    className={`w-5 h-5 text-gray-400 transition-transform duration-200 ${
+                      isExpanded ? 'rotate-180' : ''
+                    }`}
+                  />
+                </button>
+
+                {/* Accordion Content */}
+                <div
+                  className={`transition-all duration-300 ease-in-out ${
+                    isExpanded
+                      ? 'max-h-screen opacity-100'
+                      : 'max-h-0 opacity-0'
+                  }`}
+                >
+                  <div className='px-6 pb-6 border-t border-gray-100'>
+                    <p className='text-gray-700 leading-relaxed mb-6 mt-4'>
+                      {industry.shortDescription}
+                    </p>
+
+                    {/* Key Challenges & Solutions */}
+                    <div className='space-y-6 mb-6'>
+                      <div>
+                        <h4 className='font-bold text-gray-900 mb-3 flex items-center'>
+                          <div className='w-2 h-2 bg-red-500 rounded-full mr-3'></div>
+                          Key Challenges
+                        </h4>
+                        <ul className='space-y-2'>
+                          {industry.challenges.map((challenge, index) => (
+                            <li
+                              key={index}
+                              className='text-gray-600 text-sm flex items-start'
+                            >
+                              <span className='text-red-400 mr-2 mt-1.5'>
+                                •
+                              </span>
+                              {challenge}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+
+                      <div>
+                        <h4 className='font-bold text-gray-900 mb-3 flex items-center'>
+                          <div className='w-2 h-2 bg-green-500 rounded-full mr-3'></div>
+                          Our Solutions
+                        </h4>
+                        <ul className='space-y-2'>
+                          {industry.solutions.map((solution, index) => (
+                            <li
+                              key={index}
+                              className='text-gray-600 text-sm flex items-start'
+                            >
+                              <span className='text-green-400 mr-2 mt-1.5'>
+                                •
+                              </span>
+                              {solution}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    </div>
+
+                    {/* CTA */}
+                    <div className='flex flex-col gap-3'>
+                      <button
+                        onClick={() =>
+                          (window.location.href = `/industries#${industry.id}`)
+                        }
+                        className='w-full bg-orange-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-orange-700 transition-colors duration-200 text-center'
+                      >
+                        Learn More About {industry.name}
+                      </button>
+                      <button
+                        onClick={() => (window.location.href = '#contact')}
+                        className='w-full border-2 border-orange-600 text-orange-600 px-6 py-3 rounded-lg font-semibold hover:bg-orange-600 hover:text-white transition-colors duration-200 text-center'
+                      >
+                        Discuss Your Needs
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>

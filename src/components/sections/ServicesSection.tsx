@@ -20,7 +20,7 @@ const serviceIcons = {
 
 export const ServicesSection = () => {
   return (
-    <section id='services' className='py-6 bg-white'>
+    <section id='services' className='py-6 bg-gray-50'>
       <div className='max-w-6xl mx-auto px-6'>
         {/* Header */}
         <div className='text-center mb-16'>
