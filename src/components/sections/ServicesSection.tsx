@@ -20,7 +20,7 @@ const serviceIcons = {
 
 export const ServicesSection = () => {
   return (
-    <section id='services' className='py-20 bg-gray-50'>
+    <section id='services' className='py-6 bg-white'>
       <div className='max-w-6xl mx-auto px-6'>
         {/* Header */}
         <div className='text-center mb-16'>
@@ -37,7 +37,7 @@ export const ServicesSection = () => {
           {servicesData.map(service => (
             <div
               key={service.id}
-              className='bg-white rounded-xl p-8 shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 group cursor-pointer'
+              className='bg-white rounded-xl p-8 shadow-md hover:shadow-xl hover:-translate-y-2 transition-all duration-300 group cursor-pointer border border-gray-100'
             >
               {/* Icon */}
               <div className='w-16 h-16 bg-orange-100 rounded-lg flex items-center justify-center mb-6 group-hover:bg-orange-200 transition-colors duration-300'>
