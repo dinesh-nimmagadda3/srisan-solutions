@@ -15,7 +15,7 @@ export const AboutSection = () => {
 
             <div className='space-y-6 text-gray-700 leading-relaxed'>
               {aboutContent.paragraphs.map((paragraph, index) => (
-                <p key={index} className={index === 0 ? 'text-lg' : ''}>
+                <p key={index} className='text-base'>
                   {index === 0 ? (
                     <span
                       dangerouslySetInnerHTML={{
