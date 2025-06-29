@@ -20,14 +20,15 @@ export const companyInfo: CompanyInfo = {
   },
 };
 
+// Updated navigation items with router-compatible hrefs
 export const navigationItems: NavItem[] = [
-  { id: 'home', label: 'Home', href: '#home' },
-  { id: 'about', label: 'About', href: '#about' },
-  { id: 'services', label: 'Services', href: '#services' },
-  { id: 'industries', label: 'Industries', href: '#industries' },
-  { id: 'clients', label: 'Clients', href: '#clients' },
-  { id: 'careers', label: 'Careers', href: '#careers' },
-  { id: 'contact', label: 'Contact', href: '#contact' },
+  { id: 'home', label: 'Home', href: '/' },
+  { id: 'about', label: 'About', href: '/about' },
+  { id: 'services', label: 'Services', href: '/services' },
+  { id: 'industries', label: 'Industries', href: '/industries' },
+  { id: 'clients', label: 'Clients', href: '/clients' },
+  { id: 'careers', label: 'Careers', href: '/careers' },
+  { id: 'contact', label: 'Contact', href: '/contact' },
 ];
 
 // Services data from the profile

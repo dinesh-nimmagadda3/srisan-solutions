@@ -1,5 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import { companyInfo, navigationItems } from '@/data/company';
+import { getRouteFromId, navigateWithScroll } from '@/utils/routing';
 import type { NavItem } from '@/types';
 
 interface FooterProps {
@@ -9,43 +10,13 @@ interface FooterProps {
 export const Footer = ({ className = '' }: FooterProps) => {
   const navigate = useNavigate();
 
-  // Map navigation items to routes (same logic as Header)
-  const getRouteFromId = (id: string): string => {
-    switch (id) {
-      case 'home':
-        return '/';
-      case 'about':
-        return '/about';
-      case 'contact':
-        return '/contact';
-      case 'services':
-        return '/services';
-      case 'industries':
-        return '/industries';
-      case 'clients':
-        return '/clients';
-      case 'careers':
-        return '/careers';
-      default:
-        return '/';
-    }
-  };
-
   const handleNavClick = (item: NavItem) => {
     const route = getRouteFromId(item.id);
-    navigate(route);
-    // Scroll to top after navigation
-    setTimeout(() => {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }, 100);
+    navigateWithScroll(navigate, route);
   };
 
   const handleBackToTop = () => {
-    navigate('/');
-    // Scroll to top after navigation
-    setTimeout(() => {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }, 100);
+    navigateWithScroll(navigate, '/');
   };
 
   const currentYear = new Date().getFullYear();
@@ -59,7 +30,7 @@ export const Footer = ({ className = '' }: FooterProps) => {
             <div className='flex items-center space-x-3 mb-4'>
               <img
                 src='/ssl-logo.png'
-                alt='SSL Solutions Logo'
+                alt={`${companyInfo.name} Logo`}
                 className='h-10 w-auto'
               />
               <h3 className='text-2xl font-bold text-white'>
@@ -174,7 +145,7 @@ export const Footer = ({ className = '' }: FooterProps) => {
         {/* Bottom Section */}
         <div className='border-t border-gray-700 mt-8 pt-8 flex justify-center items-center'>
           <p className='text-gray-400 text-sm text-center'>
-            © {currentYear} SSL Solutions Limited. All rights reserved.
+            © {currentYear} {companyInfo.name}. All rights reserved.
           </p>
         </div>
       </div>

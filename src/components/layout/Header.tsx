@@ -1,7 +1,12 @@
 import { useState, useCallback, useMemo } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
-import { navigationItems } from '@/data/company';
+import { navigationItems, companyInfo } from '@/data/company';
 import { useScrollEffect } from '@/hooks/useScrollEffect';
+import {
+  getRouteFromId,
+  isActiveRoute,
+  navigateWithScroll,
+} from '@/utils/routing';
 import type { NavItem } from '@/types';
 
 interface HeaderProps {
@@ -14,44 +19,12 @@ export const Header = ({ className = '' }: HeaderProps) => {
   const navigate = useNavigate();
   const location = useLocation();
 
-  // Map navigation items to routes
-  const getRouteFromId = (id: string): string => {
-    switch (id) {
-      case 'home':
-        return '/';
-      case 'about':
-        return '/about';
-      case 'contact':
-        return '/contact';
-      case 'services':
-        return '/services';
-      case 'industries':
-        return '/industries';
-      case 'clients':
-        return '/clients';
-      case 'careers':
-        return '/careers';
-      default:
-        return '/';
-    }
-  };
-
-  // Check if current route matches nav item
-  const isActiveRoute = (id: string): boolean => {
-    const route = getRouteFromId(id);
-    return location.pathname === route;
-  };
-
   // Memoized handlers
   const handleNavClick = useCallback(
     (item: NavItem) => {
       const route = getRouteFromId(item.id);
-      navigate(route);
+      navigateWithScroll(navigate, route);
       setIsMobileMenuOpen(false);
-      // Scroll to top after navigation
-      setTimeout(() => {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      }, 100);
     },
     [navigate]
   );
@@ -61,11 +34,7 @@ export const Header = ({ className = '' }: HeaderProps) => {
   }, []);
 
   const handleLogoClick = useCallback(() => {
-    navigate('/');
-    // Scroll to top after navigation
-    setTimeout(() => {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }, 100);
+    navigateWithScroll(navigate, '/');
   }, [navigate]);
 
   // Memoize navigation items to prevent unnecessary re-renders
@@ -90,12 +59,12 @@ export const Header = ({ className = '' }: HeaderProps) => {
           <button
             onClick={handleLogoClick}
             className='flex items-center space-x-3 hover:opacity-90 transition-opacity duration-200 focus:outline-none focus:ring-0 rounded-lg'
-            aria-label='SSL Solutions Limited - Go to homepage'
+            aria-label={`${companyInfo.name} - Go to homepage`}
           >
-            {/* SSL Logo Image */}
+            {/* Company Logo Image */}
             <img
               src='/ssl-logo.png'
-              alt='SSL Solutions Logo'
+              alt={`${companyInfo.name} Logo`}
               className='h-12 w-auto'
               loading='eager'
               onError={e => {
@@ -129,18 +98,22 @@ export const Header = ({ className = '' }: HeaderProps) => {
                 key={item.id}
                 onClick={() => handleNavClick(item)}
                 className={`font-medium transition-colors duration-200 py-2 px-1 relative group focus:outline-none focus:ring-0 ${
-                  isActiveRoute(item.id)
+                  isActiveRoute(item.id, location.pathname)
                     ? 'text-orange-600'
                     : 'text-gray-700 hover:text-orange-600'
                 }`}
                 role='menuitem'
                 aria-label={`Navigate to ${item.label} page`}
-                aria-current={isActiveRoute(item.id) ? 'page' : undefined}
+                aria-current={
+                  isActiveRoute(item.id, location.pathname) ? 'page' : undefined
+                }
               >
                 {item.label}
                 <span
                   className={`absolute bottom-0 left-0 h-0.5 bg-orange-600 transition-all duration-200 ${
-                    isActiveRoute(item.id) ? 'w-full' : 'w-0 group-hover:w-full'
+                    isActiveRoute(item.id, location.pathname)
+                      ? 'w-full'
+                      : 'w-0 group-hover:w-full'
                   }`}
                   aria-hidden='true'
                 />
@@ -202,7 +175,7 @@ export const Header = ({ className = '' }: HeaderProps) => {
                 key={item.id}
                 onClick={() => handleNavClick(item)}
                 className={`block w-full text-left px-4 py-3 rounded-lg transition-colors duration-200 focus:outline-none focus:ring-0 ${
-                  isActiveRoute(item.id)
+                  isActiveRoute(item.id, location.pathname)
                     ? 'text-orange-600 bg-orange-50'
                     : 'text-gray-700 hover:text-orange-600 hover:bg-gray-50'
                 }`}
@@ -211,7 +184,9 @@ export const Header = ({ className = '' }: HeaderProps) => {
                 }}
                 role='menuitem'
                 aria-label={`Navigate to ${item.label} page`}
-                aria-current={isActiveRoute(item.id) ? 'page' : undefined}
+                aria-current={
+                  isActiveRoute(item.id, location.pathname) ? 'page' : undefined
+                }
                 tabIndex={isMobileMenuOpen ? 0 : -1}
               >
                 {item.label}
