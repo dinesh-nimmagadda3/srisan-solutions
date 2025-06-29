@@ -7,7 +7,8 @@ import { HomePage } from '@/pages';
 // TODO: Import these pages once created
 // import { ServicesPage } from '@/pages/ServicesPage';
 // import { IndustriesPage } from '@/pages/IndustriesPage';
-// import { ContactPage } from '@/pages/ContactPage';
+import { AboutPage } from '@/pages/AboutPage';
+import { ContactPage } from '@/pages/Contactpage';
 
 export const router = createBrowserRouter([
   {
@@ -18,6 +19,10 @@ export const router = createBrowserRouter([
         index: true,
         element: <HomePage />,
       },
+      {
+        path: '/about',
+        element: <AboutPage />,
+      },
       // TODO: Uncomment these routes once pages are created
       // {
       //   path: '/services',
@@ -27,10 +32,10 @@ export const router = createBrowserRouter([
       //   path: '/industries',
       //   element: <IndustriesPage />,
       // },
-      // {
-      //   path: '/contact',
-      //   element: <ContactPage />,
-      // },
+      {
+        path: '/contact',
+        element: <ContactPage />,
+      },
       // Catch-all route for undefined paths
       {
         path: '*',
