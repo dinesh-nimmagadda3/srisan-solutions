@@ -57,21 +57,33 @@ export const AboutPage = () => {
         </div>
       </header>
 
-      <section className='py-20 bg-gradient-to-r from-orange-600 to-red-600 text-white'>
-        <div className='max-w-6xl mx-auto px-6 text-center'>
-          <h2 className='text-5xl lg:text-6xl font-bold mb-6'>
+      <section className='py-20 relative bg-gray-900 text-white overflow-hidden'>
+        {/* Background Image */}
+        <div
+          className='absolute inset-0 bg-cover bg-center bg-no-repeat'
+          style={{
+            backgroundImage: `url('/images/hero-s4hana.jpg')`,
+          }}
+        ></div>
+
+        {/* Dark overlay for text readability */}
+        <div className='absolute inset-0 bg-gradient-to-r from-gray-900/80 to-blue-900/70'></div>
+
+        {/* Content */}
+        <div className='max-w-6xl mx-auto px-6 text-center relative z-10'>
+          <h2 className='text-5xl lg:text-6xl font-bold mb-6 text-white drop-shadow-lg'>
             {aboutPageContent.hero.title}
           </h2>
-          <p className='text-2xl text-orange-100 mb-8'>
+          <p className='text-2xl text-blue-100 mb-8 drop-shadow-md'>
             {aboutPageContent.hero.subtitle}
           </p>
-          <p className='text-xl text-orange-100 max-w-4xl mx-auto leading-relaxed'>
+          <p className='text-xl text-gray-200 max-w-4xl mx-auto leading-relaxed drop-shadow-md'>
             {aboutPageContent.hero.description}
           </p>
         </div>
       </section>
 
-      <section className='py-20 bg-white'>
+      <section className='py-10 bg-gray-50'>
         <div className='max-w-6xl mx-auto px-6'>
           <div className='grid lg:grid-cols-2 gap-16 items-center'>
             <div>
@@ -110,7 +122,7 @@ export const AboutPage = () => {
         </div>
       </section>
 
-      <section className='py-20 bg-gray-50'>
+      <section className='py-10 bg-gray-50'>
         <div className='max-w-6xl mx-auto px-6'>
           <div className='text-center mb-16'>
             <h3 className='text-4xl font-bold text-gray-900 mb-6'>
@@ -147,7 +159,7 @@ export const AboutPage = () => {
         </div>
       </section>
 
-      <section className='py-20 bg-white'>
+      <section className='py-20 bg-gray-50'>
         <div className='max-w-6xl mx-auto px-6'>
           <div className='text-center mb-16'>
             <h3 className='text-4xl font-bold text-gray-900 mb-6'>
@@ -160,7 +172,7 @@ export const AboutPage = () => {
 
           <div className='grid md:grid-cols-2 gap-8'>
             {aboutPageContent.expertise.areas.map((area, index) => (
-              <div key={index} className='bg-gray-50 rounded-xl p-8'>
+              <div key={index} className='bg-white rounded-xl p-8 shadow-lg'>
                 <h4 className='text-2xl font-bold text-gray-900 mb-4'>
                   {area.title}
                 </h4>
@@ -184,7 +196,7 @@ export const AboutPage = () => {
         </div>
       </section>
 
-      <section className='py-20 bg-gray-50'>
+      <section className='py-10 bg-gray-50'>
         <div className='max-w-6xl mx-auto px-6'>
           <div className='text-center mb-16'>
             <h3 className='text-4xl font-bold text-gray-900 mb-12'>
@@ -222,7 +234,7 @@ export const AboutPage = () => {
         </div>
       </section>
 
-      <section className='py-20 bg-white'>
+      <section className='py-10 bg-gray-50'>
         <div className='max-w-6xl mx-auto px-6'>
           <div className='text-center mb-16'>
             <h3 className='text-4xl font-bold text-gray-900 mb-6'>
@@ -255,26 +267,22 @@ export const AboutPage = () => {
         </div>
       </section>
 
-      <section className='py-20 bg-gray-900 text-white'>
+      <section className='py-10 bg-gray-50 border-gray-200'>
         <div className='max-w-4xl mx-auto px-6 text-center'>
-          <h3 className='text-4xl lg:text-5xl font-bold mb-6'>
+          <h3 className='text-4xl lg:text-5xl font-bold mb-6 text-gray-900'>
             {aboutPageContent.cta.title}
           </h3>
-          <p className='text-xl text-gray-300 mb-12 leading-relaxed'>
+          <p className='text-xl text-gray-600 mb-12 leading-relaxed'>
             {aboutPageContent.cta.description}
           </p>
 
-          <div className='flex flex-col sm:flex-row gap-4 justify-center'>
+          <div className='flex justify-center'>
             <button
               onClick={handleContactPage}
-              className='bg-orange-600 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-orange-700 transform hover:scale-105 transition-all duration-200 shadow-lg flex items-center justify-center'
+              className='bg-orange-600 text-white px-10 py-5 rounded-lg font-bold text-lg hover:bg-orange-700 transform hover:scale-105 transition-all duration-200 shadow-xl flex items-center justify-center'
             >
               {aboutPageContent.cta.primaryButton}
               <ArrowRight className='w-5 h-5 ml-2' />
-            </button>
-
-            <button className='border-2 border-white text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white hover:text-gray-900 transform hover:scale-105 transition-all duration-200'>
-              {aboutPageContent.cta.secondaryButton}
             </button>
           </div>
         </div>

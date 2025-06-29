@@ -1,14 +1,51 @@
+import { useNavigate } from 'react-router-dom';
 import { companyInfo, navigationItems } from '@/data/company';
 import type { NavItem } from '@/types';
-import { scrollToSection } from '@/utils/scrollTo';
 
 interface FooterProps {
   className?: string;
 }
 
 export const Footer = ({ className = '' }: FooterProps) => {
+  const navigate = useNavigate();
+
+  // Map navigation items to routes (same logic as Header)
+  const getRouteFromId = (id: string): string => {
+    switch (id) {
+      case 'home':
+        return '/';
+      case 'about':
+        return '/about';
+      case 'contact':
+        return '/contact';
+      case 'services':
+        return '/services';
+      case 'industries':
+        return '/industries';
+      case 'clients':
+        return '/clients';
+      case 'careers':
+        return '/careers';
+      default:
+        return '/';
+    }
+  };
+
   const handleNavClick = (item: NavItem) => {
-    scrollToSection(item.id);
+    const route = getRouteFromId(item.id);
+    navigate(route);
+    // Scroll to top after navigation
+    setTimeout(() => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }, 100);
+  };
+
+  const handleBackToTop = () => {
+    navigate('/');
+    // Scroll to top after navigation
+    setTimeout(() => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }, 100);
   };
 
   const currentYear = new Date().getFullYear();
@@ -44,7 +81,7 @@ export const Footer = ({ className = '' }: FooterProps) => {
                 <li key={item.id}>
                   <button
                     onClick={() => handleNavClick(item)}
-                    className='text-gray-300 hover:text-white transition-colors duration-200 text-left relative group'
+                    className='text-gray-300 hover:text-white transition-colors duration-200 text-left relative group focus:outline-none focus:ring-0'
                   >
                     <span className='relative z-10'>{item.label}</span>
                     <span className='absolute bottom-0 left-0 w-0 h-0.5 bg-orange-500 transition-all duration-300 group-hover:w-full' />
@@ -144,8 +181,8 @@ export const Footer = ({ className = '' }: FooterProps) => {
 
       {/* Floating Back to Top Button */}
       <button
-        onClick={() => scrollToSection('home')}
-        className='fixed bottom-8 right-8 z-40 bg-blue-600 hover:bg-blue-700 text-white w-12 h-12 rounded-full shadow-lg transition-all duration-300 transform hover:scale-110 flex items-center justify-center'
+        onClick={handleBackToTop}
+        className='fixed bottom-8 right-8 z-40 bg-blue-600 hover:bg-blue-700 text-white w-12 h-12 rounded-full shadow-lg transition-all duration-300 transform hover:scale-110 flex items-center justify-center focus:outline-none focus:ring-0'
         aria-label='Back to top'
       >
         <svg

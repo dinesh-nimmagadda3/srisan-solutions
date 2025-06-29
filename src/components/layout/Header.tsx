@@ -1,8 +1,8 @@
 import { useState, useCallback, useMemo } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { navigationItems } from '@/data/company';
 import { useScrollEffect } from '@/hooks/useScrollEffect';
 import type { NavItem } from '@/types';
-import { scrollToSection } from '@/utils/scrollTo';
 
 interface HeaderProps {
   className?: string;
@@ -11,20 +11,54 @@ interface HeaderProps {
 export const Header = ({ className = '' }: HeaderProps) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const isScrolled = useScrollEffect(50);
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  // Map navigation items to routes
+  const getRouteFromId = (id: string): string => {
+    switch (id) {
+      case 'home':
+        return '/';
+      case 'about':
+        return '/about';
+      case 'contact':
+        return '/contact';
+      case 'services':
+        return '/services';
+      case 'industries':
+        return '/industries';
+      case 'clients':
+        return '/clients';
+      case 'careers':
+        return '/careers';
+      default:
+        return '/';
+    }
+  };
+
+  // Check if current route matches nav item
+  const isActiveRoute = (id: string): boolean => {
+    const route = getRouteFromId(id);
+    return location.pathname === route;
+  };
 
   // Memoized handlers
-  const handleNavClick = useCallback((item: NavItem) => {
-    scrollToSection(item.id);
-    setIsMobileMenuOpen(false);
-  }, []);
+  const handleNavClick = useCallback(
+    (item: NavItem) => {
+      const route = getRouteFromId(item.id);
+      navigate(route);
+      setIsMobileMenuOpen(false);
+    },
+    [navigate]
+  );
 
   const toggleMobileMenu = useCallback(() => {
     setIsMobileMenuOpen(prev => !prev);
   }, []);
 
   const handleLogoClick = useCallback(() => {
-    scrollToSection('home');
-  }, []);
+    navigate('/');
+  }, [navigate]);
 
   // Memoize navigation items to prevent unnecessary re-renders
   const memoizedNavItems = useMemo(() => navigationItems, []);
@@ -47,7 +81,7 @@ export const Header = ({ className = '' }: HeaderProps) => {
           {/* Logo */}
           <button
             onClick={handleLogoClick}
-            className='flex items-center space-x-3 hover:opacity-90 transition-opacity duration-200 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 rounded-lg'
+            className='flex items-center space-x-3 hover:opacity-90 transition-opacity duration-200 focus:outline-none focus:ring-0 rounded-lg'
             aria-label='SSL Solutions Limited - Go to homepage'
           >
             {/* SSL Logo Image */}
@@ -86,13 +120,20 @@ export const Header = ({ className = '' }: HeaderProps) => {
               <button
                 key={item.id}
                 onClick={() => handleNavClick(item)}
-                className='text-gray-700 hover:text-orange-600 font-medium transition-colors duration-200 py-2 px-1 relative group focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 rounded'
+                className={`font-medium transition-colors duration-200 py-2 px-1 relative group focus:outline-none focus:ring-0 ${
+                  isActiveRoute(item.id)
+                    ? 'text-orange-600'
+                    : 'text-gray-700 hover:text-orange-600'
+                }`}
                 role='menuitem'
-                aria-label={`Navigate to ${item.label} section`}
+                aria-label={`Navigate to ${item.label} page`}
+                aria-current={isActiveRoute(item.id) ? 'page' : undefined}
               >
                 {item.label}
                 <span
-                  className='absolute bottom-0 left-0 w-0 h-0.5 bg-orange-600 transition-all duration-200 group-hover:w-full'
+                  className={`absolute bottom-0 left-0 h-0.5 bg-orange-600 transition-all duration-200 ${
+                    isActiveRoute(item.id) ? 'w-full' : 'w-0 group-hover:w-full'
+                  }`}
                   aria-hidden='true'
                 />
               </button>
@@ -152,12 +193,17 @@ export const Header = ({ className = '' }: HeaderProps) => {
               <button
                 key={item.id}
                 onClick={() => handleNavClick(item)}
-                className='block w-full text-left px-4 py-3 text-gray-700 hover:text-orange-600 hover:bg-gray-50 rounded-lg transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-inset'
+                className={`block w-full text-left px-4 py-3 rounded-lg transition-colors duration-200 focus:outline-none focus:ring-0 ${
+                  isActiveRoute(item.id)
+                    ? 'text-orange-600 bg-orange-50'
+                    : 'text-gray-700 hover:text-orange-600 hover:bg-gray-50'
+                }`}
                 style={{
                   animationDelay: `${index * 50}ms`,
                 }}
                 role='menuitem'
-                aria-label={`Navigate to ${item.label} section`}
+                aria-label={`Navigate to ${item.label} page`}
+                aria-current={isActiveRoute(item.id) ? 'page' : undefined}
                 tabIndex={isMobileMenuOpen ? 0 : -1}
               >
                 {item.label}
