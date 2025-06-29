@@ -10,7 +10,7 @@ export const companyInfo: CompanyInfo = {
   founded: 2011,
   contact: {
     phone: '+44 7828736387',
-    email: 'info@srian.com',
+    email: 'info@srisan.com',
     address: {
       street: '383 Kenton Road',
       city: 'Harrow',

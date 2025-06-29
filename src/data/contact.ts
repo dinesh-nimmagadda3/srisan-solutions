@@ -32,8 +32,8 @@ export const contactContent = {
       {
         icon: 'email',
         label: 'Email',
-        value: 'info@srian.com',
-        action: 'mailto:info@srian.com',
+        value: 'info@srisan.com',
+        action: 'mailto:info@srisan.com',
       },
       {
         icon: 'location',

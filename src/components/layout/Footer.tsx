@@ -107,7 +107,7 @@ export const Footer = ({ className = '' }: FooterProps) => {
                   />
                 </svg>
                 <div>
-                  <p className='font-medium text-white'>Address</p>
+                  <p className='font-medium text-white'>Registered Address</p>
                   <a
                     href={`https://maps.google.com/?q=${encodeURIComponent(
                       `${companyInfo.contact.address.street}, ${companyInfo.contact.address.city} ${companyInfo.contact.address.postcode}, ${companyInfo.contact.address.country}`
