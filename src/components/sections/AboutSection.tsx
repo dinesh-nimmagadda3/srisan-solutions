@@ -1,4 +1,3 @@
-// src/components/sections/AboutSection.tsx
 import { companyInfo } from '@/data/company';
 import { aboutContent } from '@/data/aboutsection';
 

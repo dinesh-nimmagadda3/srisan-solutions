@@ -1,4 +1,3 @@
-// src/components/sections/ClientsSection.tsx
 import { useEffect, useState } from 'react';
 import { Building2 } from 'lucide-react';
 import { clientsContent, clientsData, partnersData } from '@/data/clients';
@@ -29,7 +28,7 @@ export const ClientsSection = () => {
   }
 
   return (
-    <section id='clients' className='py-12 bg-white'>
+    <section id='clients' className='py-12 bg-gray-50'>
       <div className='max-w-6xl mx-auto px-6'>
         {/* Header */}
         <div className='text-center mb-16'>
@@ -43,7 +42,7 @@ export const ClientsSection = () => {
 
         {/* Clients Carousel */}
         <div
-          className='relative mb-20 bg-gray-50 rounded-2xl p-8'
+          className='relative mb-12 p-8'
           onMouseEnter={() => setIsAutoPlaying(false)}
           onMouseLeave={() => setIsAutoPlaying(true)}
         >
@@ -86,8 +85,6 @@ export const ClientsSection = () => {
             </div>
           </div>
 
-          {/* Navigation Arrows - Removed */}
-
           {/* Dots Indicator */}
           <div className='flex justify-center mt-6 space-x-2'>
             {clientSlides.map((_, index) => (
@@ -106,7 +103,7 @@ export const ClientsSection = () => {
         </div>
 
         {/* Partners Section - Simplified */}
-        <div className='bg-gray-50 rounded-2xl p-8'>
+        <div className='rounded-2xl'>
           <div className='text-center mb-8'>
             <h3 className='text-3xl font-bold text-gray-900 mb-4'>
               {clientsContent.partnersTitle}

@@ -1,5 +1,3 @@
-// src/data/clients.ts
-
 export interface Client {
   id: string;
   name: string;

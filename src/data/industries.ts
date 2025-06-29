@@ -1,5 +1,3 @@
-// src/data/industries.ts
-
 export interface Industry {
   id: string;
   name: string;

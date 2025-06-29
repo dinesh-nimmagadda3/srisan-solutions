@@ -1,4 +1,3 @@
-// src/components/sections/IndustriesSection.tsx
 import { useState } from 'react';
 import {
   Factory,
