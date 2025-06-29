@@ -48,6 +48,10 @@ export const Header = ({ className = '' }: HeaderProps) => {
       const route = getRouteFromId(item.id);
       navigate(route);
       setIsMobileMenuOpen(false);
+      // Scroll to top after navigation
+      setTimeout(() => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }, 100);
     },
     [navigate]
   );
@@ -58,6 +62,10 @@ export const Header = ({ className = '' }: HeaderProps) => {
 
   const handleLogoClick = useCallback(() => {
     navigate('/');
+    // Scroll to top after navigation
+    setTimeout(() => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }, 100);
   }, [navigate]);
 
   // Memoize navigation items to prevent unnecessary re-renders
