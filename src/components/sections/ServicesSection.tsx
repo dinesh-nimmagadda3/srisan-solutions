@@ -131,25 +131,6 @@ export const ServicesSection = () => {
             </article>
           ))}
         </div>
-
-        {/* Call to Action */}
-        <div className='text-center mt-16'>
-          <p className='text-lg text-gray-600 mb-6'>
-            Need a custom solution or have questions about our services?
-          </p>
-          <button
-            onClick={() => {
-              const element = document.getElementById('contact');
-              if (element) {
-                element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-              }
-            }}
-            className='bg-orange-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-orange-700 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2'
-            aria-label='Contact us to discuss your SAP requirements'
-          >
-            Discuss Your Requirements
-          </button>
-        </div>
       </div>
     </section>
   );
