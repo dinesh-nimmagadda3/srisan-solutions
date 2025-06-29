@@ -1,6 +1,4 @@
-// router/index.tsx
 import { createBrowserRouter } from 'react-router-dom';
-
 import { Layout } from '@/components';
 import { HomePage } from '@/pages';
 
@@ -8,7 +6,7 @@ import { HomePage } from '@/pages';
 // import { ServicesPage } from '@/pages/ServicesPage';
 // import { IndustriesPage } from '@/pages/IndustriesPage';
 import { AboutPage } from '@/pages/AboutPage';
-import { ContactPage } from '@/pages/Contactpage';
+import ContactPage from '@/pages/ContactPage';
 
 export const router = createBrowserRouter([
   {
