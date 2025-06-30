@@ -93,7 +93,7 @@ export const Header = ({ className = '' }: HeaderProps) => {
             role='menubar'
             aria-label='Main menu'
           >
-            {memoizedNavItems.map((item, _index) => (
+            {memoizedNavItems.map(item => (
               <button
                 key={item.id}
                 onClick={() => handleNavClick(item)}
