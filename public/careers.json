@@ -1,0 +1,181 @@
+{
+    "company": {
+        "name": "SSL Solutions Limited",
+        "tagline": "Join Our Boutique SAP Consulting Team",
+        "description": "Build your career with a dynamic team of SAP experts who are passionate about delivering exceptional solutions for global clients.",
+        "culture": [
+            "Collaborative and supportive work environment",
+            "Opportunity to work with leading global organizations",
+            "Continuous learning and professional development",
+            "Work-life balance and flexible arrangements",
+            "Competitive compensation and benefits"
+        ]
+    },
+    "contact": {
+        "email": "careers@srisan.com",
+        "subject": "Job Application - [Position Title]",
+        "instructions": "Please include your CV, a brief cover letter, and mention the position you're applying for in the subject line."
+    },
+    "benefits": [
+        {
+            "title": "Professional Growth",
+            "description": "Work on challenging SAP projects with industry-leading clients",
+            "icon": "trending-up"
+        },
+        {
+            "title": "Learning Opportunities",
+            "description": "Continuous training and certification in latest SAP technologies",
+            "icon": "book-open"
+        },
+        {
+            "title": "Global Exposure",
+            "description": "Collaborate with international teams and clients worldwide",
+            "icon": "globe"
+        },
+        {
+            "title": "Work-Life Balance",
+            "description": "Flexible working arrangements and supportive culture",
+            "icon": "heart"
+        }
+    ],
+    "openPositions": [
+        {
+            "id": "sap-s4hana-consultant",
+            "title": "Senior SAP S/4HANA Consultant",
+            "department": "Consulting",
+            "location": "London, UK (Hybrid)",
+            "type": "Full-time",
+            "experience": "5+ years",
+            "salary": "£60,000 - £80,000",
+            "posted": "2024-12-15",
+            "summary": "Join our team as a Senior SAP S/4HANA Consultant and help leading organizations transform their business operations.",
+            "responsibilities": [
+                "Lead SAP S/4HANA implementation projects from blueprint to go-live",
+                "Configure and customize SAP modules according to business requirements",
+                "Provide technical guidance and mentoring to junior consultants",
+                "Collaborate with clients to understand business processes and requirements",
+                "Conduct system testing, user training, and post-go-live support"
+            ],
+            "requirements": [
+                "Bachelor's degree in Computer Science, Engineering, or related field",
+                "5+ years of hands-on SAP S/4HANA implementation experience",
+                "Strong knowledge of SAP modules (FI/CO, MM, SD, PP, etc.)",
+                "Experience with SAP Activate methodology",
+                "Excellent communication and client-facing skills",
+                "SAP certification preferred",
+                "Willingness to travel to client sites as needed"
+            ],
+            "skills": [
+                "SAP S/4HANA",
+                "SAP HANA",
+                "ABAP",
+                "SAP Fiori",
+                "Business Process Analysis",
+                "Project Management"
+            ]
+        },
+        {
+            "id": "abap-developer",
+            "title": "SAP ABAP Developer",
+            "department": "Development",
+            "location": "Remote/London, UK",
+            "type": "Full-time",
+            "experience": "3+ years",
+            "salary": "£45,000 - £65,000",
+            "posted": "2024-12-10",
+            "summary": "We're looking for a skilled ABAP Developer to join our development team and create custom solutions for our clients.",
+            "responsibilities": [
+                "Develop custom ABAP programs, reports, and interfaces",
+                "Create and maintain SAP enhancements and modifications",
+                "Develop integration solutions using SAP PI/PO and APIs",
+                "Perform code reviews and ensure development best practices",
+                "Support system upgrades and technical troubleshooting"
+            ],
+            "requirements": [
+                "Bachelor's degree in Computer Science or related field",
+                "3+ years of SAP ABAP development experience",
+                "Strong knowledge of ABAP Objects, ALV, and SmartForms",
+                "Experience with SAP integration technologies",
+                "Understanding of SAP development lifecycle",
+                "Good analytical and problem-solving skills"
+            ],
+            "skills": [
+                "ABAP",
+                "ABAP Objects",
+                "SAP PI/PO",
+                "OData",
+                "REST/SOAP APIs",
+                "ALV Programming",
+                "SmartForms"
+            ]
+        },
+        {
+            "id": "functional-consultant",
+            "title": "SAP Functional Consultant (FI/CO)",
+            "department": "Consulting",
+            "location": "London, UK",
+            "type": "Full-time",
+            "experience": "4+ years",
+            "salary": "£50,000 - £70,000",
+            "posted": "2024-12-08",
+            "summary": "Join our consulting team as an SAP FI/CO Functional Consultant and help clients optimize their financial processes.",
+            "responsibilities": [
+                "Configure and implement SAP FI/CO modules",
+                "Analyze business requirements and design solutions",
+                "Conduct workshops and training sessions with clients",
+                "Support system testing and user acceptance testing",
+                "Provide post-implementation support and optimization"
+            ],
+            "requirements": [
+                "Bachelor's degree in Finance, Accounting, or related field",
+                "4+ years of SAP FI/CO functional experience",
+                "Strong understanding of financial and controlling processes",
+                "Experience with SAP S/4HANA Finance preferred",
+                "Excellent communication and presentation skills",
+                "Professional accounting qualification preferred (ACCA, CIMA, etc.)"
+            ],
+            "skills": [
+                "SAP FI/CO",
+                "Financial Accounting",
+                "Controlling",
+                "SAP S/4HANA Finance",
+                "Business Process Design",
+                "Client Training"
+            ]
+        },
+        {
+            "id": "project-manager",
+            "title": "SAP Project Manager",
+            "department": "Project Management",
+            "location": "London, UK (Hybrid)",
+            "type": "Full-time",
+            "experience": "6+ years",
+            "salary": "£65,000 - £85,000",
+            "posted": "2024-12-05",
+            "summary": "Lead complex SAP implementation projects and ensure successful delivery for our global clients.",
+            "responsibilities": [
+                "Manage end-to-end SAP implementation projects",
+                "Coordinate project teams and stakeholders",
+                "Develop project plans, timelines, and budgets",
+                "Monitor project progress and manage risks",
+                "Ensure quality delivery within scope, time, and budget"
+            ],
+            "requirements": [
+                "Bachelor's degree in Business, IT, or related field",
+                "6+ years of SAP project management experience",
+                "PMP or PRINCE2 certification preferred",
+                "Strong leadership and team management skills",
+                "Experience with SAP Activate methodology",
+                "Excellent stakeholder management abilities"
+            ],
+            "skills": [
+                "Project Management",
+                "SAP Activate",
+                "Stakeholder Management",
+                "Risk Management",
+                "Team Leadership",
+                "Agile/Scrum"
+            ]
+        }
+    ]
+}
