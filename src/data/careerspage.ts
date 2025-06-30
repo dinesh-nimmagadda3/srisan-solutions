@@ -22,7 +22,7 @@ export const careersPageContent = {
     noPositions: {
       title: 'No Open Positions Currently',
       description:
-        "We're always looking for talented individuals to join our team.",
+        "We're always looking for talented individuals to join our team. Send us your CV and we'll keep you in mind for future opportunities.",
       buttonText: 'Send Your CV',
     },
   },

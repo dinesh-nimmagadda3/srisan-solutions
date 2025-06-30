@@ -509,38 +509,48 @@ export const CareersPage = () => {
               >
                 {careersPageContent.positions.noPositions.buttonText}
               </button>
+
+              {/* Contact info for no positions case */}
+              <div className='mt-8 p-6 bg-white rounded-lg shadow-md max-w-md mx-auto'>
+                <p className='text-gray-700'>
+                  {careersPageContent.application.contactInstructions}{' '}
+                  <strong>{careersData.contact.email}</strong>
+                </p>
+              </div>
             </div>
           )}
         </div>
       </section>
 
-      {/* Call to Action */}
-      <section className='py-20 bg-gray-50'>
-        <div className='max-w-4xl mx-auto px-6 text-center'>
-          <h3 className='text-4xl lg:text-5xl font-bold mb-6 text-gray-900'>
-            {careersPageContent.cta.title}
-          </h3>
-          <p className='text-xl mb-12 leading-relaxed text-gray-600'>
-            {careersPageContent.cta.description}
-          </p>
-
-          <button
-            onClick={handleGeneralApplication}
-            className='bg-orange-600 text-white px-10 py-5 rounded-lg font-bold text-lg hover:bg-orange-700 transform hover:scale-105 transition-all duration-200 shadow-xl flex items-center justify-center mx-auto'
-          >
-            <Mail className='w-5 h-5 mr-2' />
-            {careersPageContent.cta.primaryButton}
-            <ArrowRight className='w-5 h-5 ml-2' />
-          </button>
-
-          <div className='mt-8 p-6 bg-white rounded-lg shadow-md'>
-            <p className='text-gray-700'>
-              {careersPageContent.application.contactInstructions}{' '}
-              <strong>{careersData.contact.email}</strong>
+      {/* Call to Action - Only show if there are open positions */}
+      {careersData.openPositions.length > 0 && (
+        <section className='py-20 bg-gray-50'>
+          <div className='max-w-4xl mx-auto px-6 text-center'>
+            <h3 className='text-4xl lg:text-5xl font-bold mb-6 text-gray-900'>
+              {careersPageContent.cta.title}
+            </h3>
+            <p className='text-xl mb-12 leading-relaxed text-gray-600'>
+              {careersPageContent.cta.description}
             </p>
+
+            <button
+              onClick={handleGeneralApplication}
+              className='bg-orange-600 text-white px-10 py-5 rounded-lg font-bold text-lg hover:bg-orange-700 transform hover:scale-105 transition-all duration-200 shadow-xl flex items-center justify-center mx-auto'
+            >
+              <Mail className='w-5 h-5 mr-2' />
+              {careersPageContent.cta.primaryButton}
+              <ArrowRight className='w-5 h-5 ml-2' />
+            </button>
+
+            <div className='mt-8 p-6 bg-white rounded-lg shadow-md'>
+              <p className='text-gray-700'>
+                {careersPageContent.application.contactInstructions}{' '}
+                <strong>{careersData.contact.email}</strong>
+              </p>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
     </div>
   );
 };
