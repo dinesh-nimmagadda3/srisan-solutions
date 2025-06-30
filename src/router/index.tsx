@@ -4,6 +4,7 @@ import { HomePage } from '@/pages';
 import { AboutPage } from '@/pages/AboutPage';
 import ContactPage from '@/pages/ContactPage';
 import { ServicesPage } from '@/pages/ServicesPage';
+import { IndustriesPage } from '@/pages/IndustriesPage';
 
 // Placeholder components for pages that don't exist yet
 const PlaceholderPage = ({ title }: { title: string }) => (
@@ -43,7 +44,7 @@ export const router = createBrowserRouter([
       },
       {
         path: '/industries',
-        element: <PlaceholderPage title='Industries' />,
+        element: <IndustriesPage />,
       },
       {
         path: '/clients',
