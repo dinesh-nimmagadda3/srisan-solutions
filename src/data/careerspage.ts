@@ -14,6 +14,7 @@ export const careersPageContent = {
     title: "Why You'll Love Working Here",
     subtitle:
       'We offer more than just a job - we offer a career path with growth opportunities',
+    // This section will be hidden if no benefits are provided in the JSON
   },
 
   positions: {
@@ -49,6 +50,54 @@ export const careersPageContent = {
     contactInstructions: 'Email us at:',
     getInTouchText: 'Get in Touch',
   },
+};
+
+// Default data as fallback when JSON is incomplete or fails to load
+export const defaultCareersData = {
+  company: {
+    name: 'SSL Solutions Limited',
+    tagline: 'Join Our Boutique SAP Consulting Team',
+    description:
+      'Build your career with a dynamic team of SAP experts who are passionate about delivering exceptional solutions for global clients.',
+    culture: [
+      'Collaborative and supportive work environment',
+      'Opportunity to work with leading global organizations',
+      'Continuous learning and professional development',
+      'Work-life balance and flexible arrangements',
+      'Competitive compensation and benefits',
+    ],
+  },
+  contact: {
+    email: 'careers@srisan.com',
+    subject: 'Job Application - [Position Title]',
+    instructions:
+      "Please include your CV, a brief cover letter, and mention the position you're applying for in the subject line.",
+  },
+  benefits: [
+    {
+      title: 'Professional Growth',
+      description:
+        'Work on challenging SAP projects with industry-leading clients',
+      icon: 'trending-up',
+    },
+    {
+      title: 'Learning Opportunities',
+      description:
+        'Continuous training and certification in latest SAP technologies',
+      icon: 'book-open',
+    },
+    {
+      title: 'Global Exposure',
+      description: 'Collaborate with international teams and clients worldwide',
+      icon: 'globe',
+    },
+    {
+      title: 'Work-Life Balance',
+      description: 'Flexible working arrangements and supportive culture',
+      icon: 'heart',
+    },
+  ],
+  openPositions: [],
 };
 
 // Icon mapping for benefits loaded from JSON

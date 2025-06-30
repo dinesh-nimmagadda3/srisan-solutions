@@ -10,7 +10,11 @@ import {
   ArrowRight,
 } from 'lucide-react';
 import { useState, useEffect, useMemo } from 'react';
-import { careersPageContent, iconMap } from '@/data/careerspage';
+import {
+  careersPageContent,
+  iconMap,
+  defaultCareersData,
+} from '@/data/careerspage';
 
 interface JobPosition {
   id: string;
@@ -19,7 +23,7 @@ interface JobPosition {
   location: string;
   type: string;
   experience: string;
-  salary: string;
+  salary?: string; // Made optional
   posted: string;
   summary: string;
   responsibilities: string[];
@@ -39,7 +43,8 @@ interface CareersData {
     subject: string;
     instructions: string;
   };
-  benefits: Array<{
+  benefits?: Array<{
+    // Made optional
     title: string;
     description: string;
     icon: string;
@@ -105,18 +110,28 @@ export const CareersPage = () => {
           throw new Error('Failed to load careers data');
         }
 
-        const data: CareersData = await response.json();
-        setCareersData(data);
+        const jsonData: CareersData = await response.json();
+
+        // Use default data and only override openPositions from JSON
+        const mergedData: CareersData = {
+          ...defaultCareersData,
+          openPositions: jsonData.openPositions || [],
+        };
+
+        setCareersData(mergedData);
 
         // Set first job as selected by default
-        if (data.openPositions.length > 0) {
-          setSelectedJob(data.openPositions[0]);
+        if (mergedData.openPositions && mergedData.openPositions.length > 0) {
+          setSelectedJob(mergedData.openPositions[0]);
         }
       } catch (err) {
         setError(
           err instanceof Error ? err.message : 'Failed to load careers data'
         );
         console.error('Error loading careers data:', err);
+
+        // Use default data as fallback
+        setCareersData(defaultCareersData);
       } finally {
         setLoading(false);
       }
@@ -138,9 +153,9 @@ export const CareersPage = () => {
     }
   };
 
-  // Memoize benefits with icons
+  // Memoize benefits with icons - always use default data
   const benefitsWithIcons = useMemo(() => {
-    if (!careersData) return [];
+    if (!careersData?.benefits) return [];
 
     return careersData.benefits.map(benefit => ({
       ...benefit,
@@ -284,7 +299,7 @@ export const CareersPage = () => {
         </div>
       </section>
 
-      {/* Benefits Section */}
+      {/* Benefits Section - Always show since we have default data */}
       <section className='py-20 bg-white'>
         <div className='max-w-6xl mx-auto px-6'>
           <div className='text-center mb-16'>
@@ -329,7 +344,7 @@ export const CareersPage = () => {
             </p>
           </div>
 
-          {careersData.openPositions.length > 0 ? (
+          {careersData.openPositions && careersData.openPositions.length > 0 ? (
             <div className='grid lg:grid-cols-2 gap-12'>
               {/* Job List */}
               <div className='space-y-4'>
@@ -390,10 +405,12 @@ export const CareersPage = () => {
                         <Briefcase className='w-4 h-4 mr-2' />
                         {job.experience}
                       </div>
-                      <div className='flex items-center'>
-                        <DollarSign className='w-4 h-4 mr-2' />
-                        {job.salary}
-                      </div>
+                      {job.salary && (
+                        <div className='flex items-center'>
+                          <DollarSign className='w-4 h-4 mr-2' />
+                          {job.salary}
+                        </div>
+                      )}
                       <div className='flex items-center'>
                         <Calendar className='w-4 h-4 mr-2' />
                         {formatDate(job.posted)}
@@ -523,7 +540,7 @@ export const CareersPage = () => {
       </section>
 
       {/* Call to Action - Only show if there are open positions */}
-      {careersData.openPositions.length > 0 && (
+      {careersData.openPositions && careersData.openPositions.length > 0 && (
         <section className='py-20 bg-gray-50'>
           <div className='max-w-4xl mx-auto px-6 text-center'>
             <h3 className='text-4xl lg:text-5xl font-bold mb-6 text-gray-900'>

@@ -1,0 +1,143 @@
+{
+    "openPositions": [
+        {
+            "id": "senior-sap-consultant-001",
+            "title": "Senior SAP Consultant",
+            "department": "SAP Practice",
+            "location": "London, UK",
+            "type": "Full-time",
+            "experience": "5+ years",
+            "salary": "£60,000 - £80,000",
+            "posted": "2024-01-15",
+            "summary": "Join our dynamic team as a Senior SAP Consultant and lead transformational projects for our global clients. You'll work with cutting-edge SAP technologies while mentoring junior team members and driving business value through innovative solutions.",
+            "responsibilities": [
+                "Lead end-to-end SAP implementation projects for global clients",
+                "Design and configure SAP modules based on business requirements",
+                "Mentor and guide junior consultants in technical and functional areas",
+                "Collaborate with cross-functional teams to deliver integrated solutions",
+                "Conduct client workshops and training sessions",
+                "Provide ongoing support and optimization for existing SAP landscapes"
+            ],
+            "requirements": [
+                "5+ years of hands-on SAP consulting experience",
+                "Strong expertise in at least two SAP modules (FI/CO, MM, SD, PP, etc.)",
+                "Experience with SAP S/4HANA implementations",
+                "Proven track record of successful project delivery",
+                "Excellent communication and client-facing skills",
+                "Bachelor's degree in Business, IT, or related field"
+            ],
+            "skills": [
+                "SAP S/4HANA",
+                "SAP ECC",
+                "ABAP",
+                "Project Management",
+                "Business Process Analysis",
+                "Client Relationship Management"
+            ]
+        },
+        {
+            "id": "sap-functional-analyst-002",
+            "title": "SAP Functional Analyst",
+            "department": "SAP Practice",
+            "location": "Manchester, UK / Remote",
+            "type": "Full-time",
+            "experience": "2-4 years",
+            "salary": "£40,000 - £55,000",
+            "posted": "2024-01-20",
+            "summary": "We're seeking a motivated SAP Functional Analyst to join our growing team. This role offers excellent opportunities for career development while working on diverse projects across multiple industries.",
+            "responsibilities": [
+                "Analyze business requirements and translate them into SAP solutions",
+                "Configure SAP modules to meet client specifications",
+                "Create detailed functional specifications for development teams",
+                "Conduct system testing and user acceptance testing",
+                "Prepare training materials and conduct end-user training",
+                "Support go-live activities and post-implementation support"
+            ],
+            "requirements": [
+                "2-4 years of SAP functional consulting experience",
+                "Strong knowledge of at least one SAP module",
+                "Experience with requirements gathering and documentation",
+                "Understanding of business processes and best practices",
+                "Strong analytical and problem-solving skills",
+                "Excellent written and verbal communication skills"
+            ],
+            "skills": [
+                "SAP Functional Configuration",
+                "Business Process Modeling",
+                "Requirements Analysis",
+                "User Training",
+                "System Testing",
+                "Documentation"
+            ]
+        },
+        {
+            "id": "sap-technical-developer-003",
+            "title": "SAP Technical Developer",
+            "department": "Development",
+            "location": "Birmingham, UK",
+            "type": "Full-time",
+            "experience": "3+ years",
+            "posted": "2024-01-25",
+            "summary": "Join our technical team as an SAP Developer and work on complex customizations and integrations. You'll be involved in developing innovative solutions that enhance our clients' SAP landscapes.",
+            "responsibilities": [
+                "Develop custom ABAP programs, reports, and interfaces",
+                "Create and maintain SAP workflows and forms",
+                "Build integrations between SAP and external systems",
+                "Perform code reviews and ensure development best practices",
+                "Troubleshoot and resolve technical issues",
+                "Collaborate with functional consultants on solution design"
+            ],
+            "requirements": [
+                "3+ years of SAP ABAP development experience",
+                "Strong knowledge of SAP development tools and methodologies",
+                "Experience with SAP integration technologies (RFC, IDoc, Web Services)",
+                "Understanding of SAP data structures and database concepts",
+                "Experience with debugging and performance optimization",
+                "Knowledge of software development lifecycle"
+            ],
+            "skills": [
+                "ABAP Programming",
+                "SAP Development Tools",
+                "Integration Technologies",
+                "Database Concepts",
+                "Performance Tuning",
+                "Code Review"
+            ]
+        },
+        {
+            "id": "junior-sap-consultant-004",
+            "title": "Junior SAP Consultant",
+            "department": "SAP Practice",
+            "location": "Various UK Locations",
+            "type": "Full-time",
+            "experience": "0-2 years",
+            "salary": "£25,000 - £35,000",
+            "posted": "2024-02-01",
+            "summary": "Perfect opportunity for recent graduates or career changers to start their SAP consulting journey. You'll receive comprehensive training and mentorship while working on real client projects.",
+            "responsibilities": [
+                "Assist senior consultants with SAP configuration and testing",
+                "Support data migration and validation activities",
+                "Participate in client meetings and requirement gathering sessions",
+                "Create and maintain project documentation",
+                "Conduct basic user training and support",
+                "Learn and apply SAP best practices"
+            ],
+            "requirements": [
+                "Bachelor's degree in Business, IT, Engineering, or related field",
+                "Strong analytical and problem-solving abilities",
+                "Excellent communication and interpersonal skills",
+                "Eagerness to learn SAP technologies and business processes",
+                "Ability to work in a team environment",
+                "Willingness to travel to client sites as required"
+            ],
+            "skills": [
+                "Analytical Thinking",
+                "Communication",
+                "Team Collaboration",
+                "Learning Agility",
+                "Problem Solving",
+                "Attention to Detail"
+            ]
+        }
+    ]
+}
