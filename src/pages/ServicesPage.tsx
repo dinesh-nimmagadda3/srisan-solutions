@@ -10,7 +10,7 @@ import {
   ArrowRight,
 } from 'lucide-react';
 import { servicesData } from '@/data/services';
-import { servicesPageContent } from '@/data/Servicepage';
+import { servicesPageContent } from '@/data/servicepage';
 
 const serviceIcons = {
   'sap-s4hana': RefreshCw,
@@ -149,7 +149,7 @@ export const ServicesPage = () => {
           </div>
 
           <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-8'>
-            {servicesData.map((service, _index) => {
+            {servicesData.map(service => {
               const IconComponent =
                 serviceIcons[service.id as keyof typeof serviceIcons];
 

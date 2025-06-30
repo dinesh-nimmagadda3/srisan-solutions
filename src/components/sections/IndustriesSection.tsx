@@ -47,18 +47,15 @@ export const IndustriesSection = () => {
     setExpandedMobile(prev => (prev === industryId ? null : industryId));
   }, []);
 
-  const handleLearnMore = useCallback(
-    (_industryId: string, _industryName: string) => {
-      // For now, scroll to contact since industry pages don't exist yet
-      const element = document.getElementById('contact');
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
-      // TODO: Replace with actual route when industry pages are created
-      // window.location.href = `/industries#${industryId}`;
-    },
-    []
-  );
+  const handleLearnMore = useCallback(() => {
+    // For now, scroll to contact since industry pages don't exist yet
+    const element = document.getElementById('contact');
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+    // TODO: Replace with actual route when industry pages are created
+    // window.location.href = `/industries#${industryId}`;
+  }, []);
 
   const handleDiscussNeeds = useCallback(() => {
     const element = document.getElementById('contact');
@@ -95,7 +92,7 @@ export const IndustriesSection = () => {
             role='tablist'
             aria-label='Industry selection'
           >
-            {industriesWithIcons.map((industry, _index) => {
+            {industriesWithIcons.map(industry => {
               const isSelected = selectedIndustry.id === industry.id;
 
               return (
@@ -270,9 +267,7 @@ export const IndustriesSection = () => {
               {/* CTA */}
               <div className='flex flex-col sm:flex-row gap-4'>
                 <button
-                  onClick={() =>
-                    handleLearnMore(selectedIndustry.id, selectedIndustry.name)
-                  }
+                  onClick={handleLearnMore}
                   className='flex-1 bg-orange-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-orange-700 transition-colors duration-200 text-center focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2'
                   aria-label={`Learn more about ${selectedIndustry.name} solutions`}
                 >
@@ -296,7 +291,7 @@ export const IndustriesSection = () => {
           role='region'
           aria-label='Industries accordion'
         >
-          {industriesWithIcons.map((industry, _index) => {
+          {industriesWithIcons.map(industry => {
             const isExpanded = expandedMobile === industry.id;
 
             return (
@@ -413,9 +408,7 @@ export const IndustriesSection = () => {
                     {/* CTA */}
                     <div className='flex flex-col gap-3'>
                       <button
-                        onClick={() =>
-                          handleLearnMore(industry.id, industry.name)
-                        }
+                        onClick={handleLearnMore}
                         className='w-full bg-orange-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-orange-700 transition-colors duration-200 text-center focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2'
                         aria-label={`Learn more about ${industry.name} solutions`}
                       >

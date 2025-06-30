@@ -30,18 +30,15 @@ export const ServicesSection = () => {
   );
 
   // Memoized navigation handler
-  const handleServiceClick = useCallback(
-    (_serviceId: string, _serviceName: string) => {
-      // For now, scroll to contact since services pages don't exist yet
-      const element = document.getElementById('contact');
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
-      // TODO: Replace with actual route when services pages are created
-      // window.location.href = `/services#${serviceId}`;
-    },
-    []
-  );
+  const handleServiceClick = useCallback(() => {
+    // For now, scroll to contact since services pages don't exist yet
+    const element = document.getElementById('contact');
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+    // TODO: Replace with actual route when services pages are created
+    // window.location.href = `/services#${serviceId}`;
+  }, []);
 
   return (
     <section
@@ -69,7 +66,7 @@ export const ServicesSection = () => {
           role='region'
           aria-label='Our SAP services'
         >
-          {servicesWithIcons.map((service, _index) => (
+          {servicesWithIcons.map(service => (
             <article
               key={service.id}
               className='bg-white rounded-xl p-8 shadow-md hover:shadow-xl hover:-translate-y-2 transition-all duration-300 group cursor-pointer border border-gray-100 focus-within:ring-2 focus-within:ring-orange-500 focus-within:ring-offset-2'
@@ -103,7 +100,7 @@ export const ServicesSection = () => {
               {/* Learn More Link */}
               <div className='mt-auto'>
                 <button
-                  onClick={() => handleServiceClick(service.id, service.title)}
+                  onClick={handleServiceClick}
                   className='text-orange-600 font-semibold hover:text-orange-700 transition-all duration-200 flex items-center group-hover:translate-x-2 focus:outline-none focus:underline'
                   aria-label={`Learn more about ${service.title}`}
                   aria-describedby={`service-action-${service.id}`}

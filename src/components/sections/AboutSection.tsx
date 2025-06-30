@@ -6,7 +6,7 @@ export const AboutSection = () => {
   // Memoize calculated values
   const yearsInBusiness = useMemo(
     () => new Date().getFullYear() - companyInfo.founded,
-    [companyInfo.founded]
+    []
   );
 
   // Memoize stats data
