@@ -12,7 +12,7 @@ export const companyInfo: CompanyInfo = {
     phone: '+44 7828736387',
     email: 'info@srisan.com',
     address: {
-      street: '383 Kenton Road',
+      street: '382 Kenton Road',
       city: 'Harrow',
       postcode: 'HA3 8DP',
       country: 'United Kingdom',

@@ -9,7 +9,7 @@ export interface HeroSlide {
 export const heroSlides: HeroSlide[] = [
   {
     id: 's4hana',
-    image: '/images/hero-s4hana.jpg',
+    image: '/images/S4HANA.jpeg',
     title: 'SAP S/4HANA',
     subtitle: 'Implementation & Migration',
     description:
@@ -17,7 +17,7 @@ export const heroSlides: HeroSlide[] = [
   },
   {
     id: 'optimization',
-    image: '/images/hero-optimization.jpg',
+    image: '/images/Optimization.jpeg',
     title: 'Process Optimization',
     subtitle: 'Custom Development',
     description:
@@ -25,7 +25,7 @@ export const heroSlides: HeroSlide[] = [
   },
   {
     id: 'training',
-    image: '/images/hero-training.jpg',
+    image: '/images/Training.jpeg',
     title: 'Training & Support',
     subtitle: 'Change Management',
     description:
@@ -33,7 +33,7 @@ export const heroSlides: HeroSlide[] = [
   },
   {
     id: 'expertise',
-    image: '/images/hero-expertise.jpg',
+    image: '/images/Expertise.jpeg',
     title: '20+ Years Experience',
     subtitle: 'Proven Track Record',
     description:
@@ -41,7 +41,7 @@ export const heroSlides: HeroSlide[] = [
   },
   {
     id: 'partnership',
-    image: '/images/hero-partnership.jpg',
+    image: '/images/Partnership.jpeg',
     title: 'Boutique Consulting',
     subtitle: 'Personal Service',
     description:
