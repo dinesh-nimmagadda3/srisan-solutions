@@ -6,45 +6,61 @@ export interface HeroSlide {
   description: string;
 }
 
+export const heroContent = {
+  mainTitle: 'SSL Solutions Limited',
+  tagline: 'BOUTIQUE SAP CONSULTING',
+  getStartedButton: 'Get Started',
+  learnMoreButton: 'Learn More',
+};
+
 export const heroSlides: HeroSlide[] = [
   {
-    id: 's4hana',
-    image: '/images/S4HANA.jpeg',
-    title: 'SAP S/4HANA',
-    subtitle: 'Implementation & Migration',
+    id: 'transformation',
+    title: 'SAP Digital Transformation',
+    subtitle: 'Unlocking Your Business Potential',
     description:
-      'Full lifecycle support from blueprinting to go-live. Smooth ECC to S/4HANA migration with minimal disruption.',
+      'We specialize in guiding businesses through seamless SAP digital transformations, ensuring that your technology aligns perfectly with your strategic goals.',
+    image: '/images/hero-transformation.jpg',
+  },
+  {
+    id: 's4hana',
+    title: 'S/4HANA Implementation',
+    subtitle: 'Modernizing Your ERP Landscape',
+    description:
+      'Leverage our expertise for a smooth transition to SAP S/4HANA, from initial assessment and roadmap design to full implementation and support.',
+    image: '/images/hero-s4hana.jpg',
   },
   {
     id: 'optimization',
-    image: '/images/Optimization.jpeg',
     title: 'Process Optimization',
-    subtitle: 'Custom Development',
+    subtitle: 'Driving Efficiency and Growth',
     description:
-      'Tailored ABAP development and business process automation to improve efficiency and reduce costs.',
-  },
-  {
-    id: 'training',
-    image: '/images/Training.jpeg',
-    title: 'Training & Support',
-    subtitle: 'Change Management',
-    description:
-      'Comprehensive user training and ongoing support to ensure successful SAP adoption and system optimization.',
+      'Our tailored solutions help you optimize critical business processes, reduce operational costs, and enhance overall productivity within your SAP environment.',
+    image: '/images/hero-optimization.jpg',
   },
   {
     id: 'expertise',
-    image: '/images/Expertise.jpeg',
-    title: '20+ Years Experience',
-    subtitle: 'Proven Track Record',
+    title: 'Deep SAP Expertise',
+    subtitle: 'Experience You Can Trust',
     description:
-      'Trusted by global leaders including Shell, AstraZeneca, Sony Electronics, and BP across multiple industries.',
+      'With over two decades of focused SAP experience, our consultants bring unparalleled knowledge to every project, ensuring high-quality outcomes.',
+    image: '/images/hero-expertise.jpg',
   },
   {
     id: 'partnership',
-    image: '/images/Partnership.jpeg',
-    title: 'Boutique Consulting',
-    subtitle: 'Personal Service',
+    title: 'Your Trusted Partner',
+    subtitle: 'Building Success Together',
     description:
-      'Flexible engagement models with personalized solutions. Partner with IBM, KPMG, SAP, and other leading SIs.',
+      'We believe in building long-term partnerships, working collaboratively with you to navigate challenges and achieve sustainable business success.',
+    image: '/images/hero-partnership.jpg',
+  },
+  {
+    id: 'training',
+    title: 'Empowering Your Team',
+    subtitle: 'Training and Change Management',
+    description:
+      'We provide comprehensive training and change management to ensure your team fully adopts and benefits from your new SAP solutions.',
+    image: '/images/hero-training.jpg',
   },
 ];
+

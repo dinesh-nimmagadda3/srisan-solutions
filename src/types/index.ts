@@ -4,11 +4,24 @@ export interface NavItem {
   href: string;
 }
 
+export interface HeroSlide {
+  id: string;
+  title: string;
+  subtitle: string;
+  description: string;
+  image: string;
+}
+
 export interface Service {
   id: string;
   title: string;
-  description: string;
-  icon?: string;
+  shortDescription: string;
+  fullDescription: string;
+  keyFeatures: string[];
+  benefits: string[];
+  deliverables: string[];
+  timeline: string;
+  technologies: string[];
 }
 
 export interface Client {
@@ -20,6 +33,10 @@ export interface Client {
 export interface Industry {
   id: string;
   name: string;
+  shortDescription: string;
+  fullDescription: string;
+  challenges: string[];
+  solutions: string[];
 }
 
 export interface ContactInfo {

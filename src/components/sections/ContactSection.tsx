@@ -1,4 +1,5 @@
 import { ArrowRight } from 'lucide-react';
+import { contactSectionContent } from '@/data/contactsection';
 
 export const ContactSection = () => {
   const handleContactPage = () => {
@@ -11,11 +12,10 @@ export const ContactSection = () => {
         {/* Main CTA Content */}
         <div className='text-gray-900 mb-12'>
           <h2 className='text-4xl lg:text-5xl font-bold mb-6'>
-            Ready to Transform Your Business?
+            {contactSectionContent.title}
           </h2>
           <p className='text-xl lg:text-2xl text-gray-600 mb-8 leading-relaxed'>
-            Let's discuss how our SAP expertise can help you achieve your
-            business objectives and drive operational excellence.
+            {contactSectionContent.subtitle}
           </p>
         </div>
 
@@ -25,7 +25,7 @@ export const ContactSection = () => {
             onClick={handleContactPage}
             className='bg-orange-600 text-white px-12 py-5 rounded-lg font-semibold text-xl hover:bg-orange-700 transform hover:scale-105 transition-all duration-200 shadow-lg flex items-center'
           >
-            Get Started Today
+            {contactSectionContent.buttonText}
             <ArrowRight className='w-6 h-6 ml-3' />
           </button>
         </div>

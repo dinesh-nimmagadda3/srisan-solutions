@@ -1,7 +1,7 @@
-import { useNavigate } from 'react-router-dom';
 import { companyInfo, navigationItems } from '@/data/company';
-import { getRouteFromId, navigateWithScroll } from '@/utils/routing';
-import type { NavItem } from '@/types';
+import { navigateWithScroll } from '@/utils/routing';
+import { Navigation } from './Navigation';
+import { useNavigate } from 'react-router-dom';
 
 interface FooterProps {
   className?: string;
@@ -9,11 +9,6 @@ interface FooterProps {
 
 export const Footer = ({ className = '' }: FooterProps) => {
   const navigate = useNavigate();
-
-  const handleNavClick = (item: NavItem) => {
-    const route = getRouteFromId(item.id);
-    navigateWithScroll(navigate, route);
-  };
 
   const handleBackToTop = () => {
     navigateWithScroll(navigate, '/');
@@ -48,17 +43,19 @@ export const Footer = ({ className = '' }: FooterProps) => {
               Quick Links
             </h4>
             <ul className='space-y-2'>
-              {navigationItems.map(item => (
-                <li key={item.id}>
-                  <button
-                    onClick={() => handleNavClick(item)}
-                    className='text-gray-300 hover:text-white transition-colors duration-200 text-left relative group focus:outline-none focus:ring-0'
-                  >
-                    <span className='relative z-10'>{item.label}</span>
-                    <span className='absolute bottom-0 left-0 w-0 h-0.5 bg-orange-500 transition-all duration-300 group-hover:w-full' />
-                  </button>
-                </li>
-              ))}
+              <Navigation items={navigationItems}>
+                {({ item, handleNavClick }) => (
+                  <li key={item.id}>
+                    <button
+                      onClick={() => handleNavClick(item)}
+                      className='text-gray-300 hover:text-white transition-colors duration-200 text-left relative group focus:outline-none focus:ring-0'
+                    >
+                      <span className='relative z-10'>{item.label}</span>
+                      <span className='absolute bottom-0 left-0 w-0 h-0.5 bg-orange-500 transition-all duration-300 group-hover:w-full' />
+                    </button>
+                  </li>
+                )}
+              </Navigation>
             </ul>
           </div>
 
@@ -153,7 +150,7 @@ export const Footer = ({ className = '' }: FooterProps) => {
       {/* Floating Back to Top Button */}
       <button
         onClick={handleBackToTop}
-        className='fixed bottom-8 right-8 z-40 bg-blue-600 hover:bg-blue-700 text-white w-12 h-12 rounded-full shadow-lg transition-all duration-300 transform hover:scale-110 flex items-center justify-center focus:outline-none focus:ring-0'
+        className='fixed bottom-8 right-8 z-40 bg-orange-600 hover:bg-orange-700 text-white w-12 h-12 rounded-full shadow-lg transition-all duration-300 transform hover:scale-110 flex items-center justify-center focus:outline-none focus:ring-0'
         aria-label='Back to top'
       >
         <svg

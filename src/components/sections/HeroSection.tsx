@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback, useMemo } from 'react';
-import { heroSlides } from '@/data/herosection';
+import { heroSlides, heroContent } from '@/data/herosection';
 import { scrollToSection } from '@/utils/scrollTo';
 
 export const HeroSection = () => {
@@ -96,10 +96,10 @@ export const HeroSection = () => {
               />
               <div>
                 <h1 className='text-white text-2xl md:text-3xl font-bold'>
-                  SSL Solutions Limited
+                  {heroContent.mainTitle}
                 </h1>
                 <p className='text-orange-300 text-sm md:text-base font-medium'>
-                  BOUTIQUE SAP CONSULTING
+                  {heroContent.tagline}
                 </p>
               </div>
             </div>
@@ -134,7 +134,7 @@ export const HeroSection = () => {
                 className='bg-orange-600 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-orange-700 transform hover:scale-105 transition-all duration-200 shadow-lg focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2'
                 aria-describedby='get-started-desc'
               >
-                Get Started
+                {heroContent.getStartedButton}
               </button>
               <span id='get-started-desc' className='sr-only'>
                 Navigate to contact section to start your SAP journey
@@ -145,7 +145,7 @@ export const HeroSection = () => {
                 className='border-2 border-white text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white hover:text-gray-900 transform hover:scale-105 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2'
                 aria-describedby='learn-more-desc'
               >
-                Learn More
+                {heroContent.learnMoreButton}
               </button>
               <span id='learn-more-desc' className='sr-only'>
                 Navigate to about section to learn more about our company

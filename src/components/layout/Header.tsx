@@ -1,13 +1,9 @@
 import { useState, useCallback, useMemo } from 'react';
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { navigationItems, companyInfo } from '@/data/company';
 import { useScrollEffect } from '@/hooks/useScrollEffect';
-import {
-  getRouteFromId,
-  isActiveRoute,
-  navigateWithScroll,
-} from '@/utils/routing';
-import type { NavItem } from '@/types';
+import { navigateWithScroll } from '@/utils/routing';
+import { Navigation } from './Navigation';
 
 interface HeaderProps {
   className?: string;
@@ -17,17 +13,6 @@ export const Header = ({ className = '' }: HeaderProps) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const isScrolled = useScrollEffect(50);
   const navigate = useNavigate();
-  const location = useLocation();
-
-  // Memoized handlers
-  const handleNavClick = useCallback(
-    (item: NavItem) => {
-      const route = getRouteFromId(item.id);
-      navigateWithScroll(navigate, route);
-      setIsMobileMenuOpen(false);
-    },
-    [navigate]
-  );
 
   const toggleMobileMenu = useCallback(() => {
     setIsMobileMenuOpen(prev => !prev);
@@ -93,32 +78,30 @@ export const Header = ({ className = '' }: HeaderProps) => {
             role='menubar'
             aria-label='Main menu'
           >
-            {memoizedNavItems.map(item => (
-              <button
-                key={item.id}
-                onClick={() => handleNavClick(item)}
-                className={`font-medium transition-colors duration-200 py-2 px-1 relative group focus:outline-none focus:ring-0 ${
-                  isActiveRoute(item.id, location.pathname)
-                    ? 'text-orange-600'
-                    : 'text-gray-700 hover:text-orange-600'
-                }`}
-                role='menuitem'
-                aria-label={`Navigate to ${item.label} page`}
-                aria-current={
-                  isActiveRoute(item.id, location.pathname) ? 'page' : undefined
-                }
-              >
-                {item.label}
-                <span
-                  className={`absolute bottom-0 left-0 h-0.5 bg-orange-600 transition-all duration-200 ${
-                    isActiveRoute(item.id, location.pathname)
-                      ? 'w-full'
-                      : 'w-0 group-hover:w-full'
+            <Navigation items={memoizedNavItems}>
+              {({ item, handleNavClick, isActive }) => (
+                <button
+                  key={item.id}
+                  onClick={() => handleNavClick(item)}
+                  className={`font-medium transition-colors duration-200 py-2 px-1 relative group focus:outline-none focus:ring-0 ${
+                    isActive
+                      ? 'text-orange-600'
+                      : 'text-gray-700 hover:text-orange-600'
                   }`}
-                  aria-hidden='true'
-                />
-              </button>
-            ))}
+                  role='menuitem'
+                  aria-label={`Navigate to ${item.label} page`}
+                  aria-current={isActive ? 'page' : undefined}
+                >
+                  {item.label}
+                  <span
+                    className={`absolute bottom-0 left-0 h-0.5 bg-orange-600 transition-all duration-200 ${
+                      isActive ? 'w-full' : 'w-0 group-hover:w-full'
+                    }`}
+                    aria-hidden='true'
+                  />
+                </button>
+              )}
+            </Navigation>
           </div>
 
           {/* Mobile Menu Button */}
@@ -170,28 +153,28 @@ export const Header = ({ className = '' }: HeaderProps) => {
           aria-hidden={!isMobileMenuOpen}
         >
           <div className='py-4 border-t border-gray-200'>
-            {memoizedNavItems.map((item, index) => (
-              <button
-                key={item.id}
-                onClick={() => handleNavClick(item)}
-                className={`block w-full text-left px-4 py-3 rounded-lg transition-colors duration-200 focus:outline-none focus:ring-0 ${
-                  isActiveRoute(item.id, location.pathname)
-                    ? 'text-orange-600 bg-orange-50'
-                    : 'text-gray-700 hover:text-orange-600 hover:bg-gray-50'
-                }`}
-                style={{
-                  animationDelay: `${index * 50}ms`,
-                }}
-                role='menuitem'
-                aria-label={`Navigate to ${item.label} page`}
-                aria-current={
-                  isActiveRoute(item.id, location.pathname) ? 'page' : undefined
-                }
-                tabIndex={isMobileMenuOpen ? 0 : -1}
-              >
-                {item.label}
-              </button>
-            ))}
+            <Navigation
+              items={memoizedNavItems}
+              onItemClick={() => setIsMobileMenuOpen(false)}
+            >
+              {({ item, handleNavClick, isActive }) => (
+                <button
+                  key={item.id}
+                  onClick={() => handleNavClick(item)}
+                  className={`block w-full text-left px-4 py-3 rounded-lg transition-colors duration-200 focus:outline-none focus:ring-0 ${
+                    isActive
+                      ? 'text-orange-600 bg-orange-50'
+                      : 'text-gray-700 hover:text-orange-600 hover:bg-gray-50'
+                  }`}
+                  role='menuitem'
+                  aria-label={`Navigate to ${item.label} page`}
+                  aria-current={isActive ? 'page' : undefined}
+                  tabIndex={isMobileMenuOpen ? 0 : -1}
+                >
+                  {item.label}
+                </button>
+              )}
+            </Navigation>
           </div>
         </div>
       </nav>
